@@ -24,11 +24,6 @@
             </p>
             <p>
                 <label for="nama">Pengarang Buku: </label>
-            <label for="nama">Judul Buku: </label>
-            <input type="text" name="judul_buku" placeholder="Isikan Judul buku" required />
-            </p>
-            <p>
-                <label for="nama">Pengarang Buku: </label>
                 <input type="text" name="pengarang_buku" placeholder="Isikan pengarang buku" required />
             </p>
             <p>

@@ -22,7 +22,7 @@ $serverName = $_SERVER['SERVER_NAME'] ?? 'localhost';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portal Praktikum • Nuriskha Ainun Fahmi</title>
+  <title>Projek Doing • Muhammad Aziz Al Mubasyir</title>
   <link rel="icon" type="image/png" href="https://img.icons8.com/parakeet/48/bear.png" />
   <link rel="apple-touch-icon" href="https://img.icons8.com/parakeet/48/bear.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">

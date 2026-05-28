@@ -1,4 +1,4 @@
-<?php include("PraktikumMYSQL/config/database.php"); ?>
+<?php include("../config/database.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,14 +43,14 @@
             echo "<tr>";
             echo "<td>" . ++$no . "</td>"; 
 
-            $kolom = ['kode_buku', 'judul_buku', 'penulis_buku', 'penerbit_buku', 'tahun_terbit', 'stok'];
+            $kolom = ['kode_buku', 'judul_buku', 'pengarang', 'penerbit', 'tahun_terbit', 'stok'];
 
             foreach ($kolom as $k) {
                 echo "<td>" . $buku[$k] . "</td>";
             }
             echo "<td>";
-            echo "<a href='form-edit.php?id=".$buku['id_buku']."'>Edit</a> | ";
-            echo "<a href='hapus.php?id=".$buku['id_buku']."'>Hapus</a>";
+            echo "<a href='form-edit.php?id=".$buku['id']."'>Edit</a> | ";
+            echo "<a href='hapus.php?id=".$buku['id']."'>Hapus</a>";
             echo "</td>";
             
             echo "</tr>";
