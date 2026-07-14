@@ -31,28 +31,26 @@ $serverName = $_SERVER['SERVER_NAME'] ?? 'localhost';
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
   <style>
     :root{
-      --bg:#edf3f4;
-      --bg-2:#e6eff1;
-      --panel:#f8fbfc;
-      --text:#1f2a37;
-      --muted:#6b7c8f;
-      --line:#d9e4e8;
-      --acc:#87b8d8;
-      --acc-2:#b6cfe2;
-      --shadow:0 10px 28px rgba(73, 102, 128, .08);
-      --shadow-hover:0 18px 34px rgba(73, 102, 128, .15);
-      --radius:18px;
+      --bg:#0a0a0a;
+      --surface:#111111;
+      --surface-soft:#181818;
+      --panel:#141414;
+      --text:#ffffff;
+      --muted:#aaaaaa;
+      --line:rgba(255,255,255,0.08);
+      --accent:#ffc107;
+      --accent-strong:#d9a700;
+      --shadow:0 24px 80px rgba(0,0,0,0.45);
+      --shadow-hover:0 14px 32px rgba(255,193,7,0.14);
+      --radius:10px;
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0}
+    html,body{margin:0;min-height:100%;}
     body{
-      font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      font-family:Roboto,system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
       color:var(--text);
-      background:
-        radial-gradient(1200px 500px at -10% -20%, #d6e6ef 0%, transparent 58%),
-        radial-gradient(900px 420px at 110% -10%, #d9e8ec 0%, transparent 55%),
-        linear-gradient(180deg,var(--bg),var(--bg-2));
+      background:linear-gradient(180deg, #0a0a0a 0%, #070707 100%);
       min-height:100vh;
       position:relative;
       overflow-x:hidden;
@@ -62,9 +60,9 @@ $serverName = $_SERVER['SERVER_NAME'] ?? 'localhost';
       content:"";
       position:fixed;
       inset:0;
-      background-image:radial-gradient(rgba(116,141,164,.22) 1.1px, transparent 1.1px);
-      background-size:18px 18px;
-      opacity:.35;
+      background-image:radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size:20px 20px;
+      opacity:.12;
       pointer-events:none;
       z-index:0;
     }
@@ -74,135 +72,151 @@ $serverName = $_SERVER['SERVER_NAME'] ?? 'localhost';
       z-index:1;
       max-width:1200px;
       margin:0 auto;
-      padding:38px 20px 56px;
+      padding:40px 20px 58px;
       animation:fadeIn .6s ease-out;
     }
 
     .hero{
-      background:rgba(255,255,255,.62);
-      backdrop-filter: blur(6px);
-      border:1px solid rgba(255,255,255,.7);
-      border-radius:24px;
+      background:rgba(17,17,17,0.96);
+      border:1px solid var(--line);
+      border-radius:12px;
       box-shadow:var(--shadow);
-      padding:34px 30px;
-      margin-bottom:20px;
+      padding:36px 32px;
+      margin-bottom:24px;
     }
 
     .eyebrow{
-      letter-spacing:.18em;
+      letter-spacing:.26em;
       font-size:12px;
       text-transform:uppercase;
-      color:#7390a8;
+      color:var(--muted);
       font-weight:700;
       margin-bottom:12px;
     }
 
     h1{
       margin:0;
-      font-size:clamp(30px,5vw,52px);
-      line-height:1.08;
+      font-size:clamp(36px,5vw,56px);
+      line-height:1.05;
       font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      color:var(--text);
     }
 
     .sub{
-      margin:10px 0 8px;
-      font-size:14px;
+      margin:12px 0 10px;
+      font-size:13px;
       text-transform:uppercase;
-      letter-spacing:.16em;
-      color:#7b8ea0;
+      letter-spacing:.18em;
+      color:var(--muted);
       font-weight:600;
     }
 
     .desc{
       margin:0;
       color:var(--muted);
-      line-height:1.75;
+      line-height:1.8;
       max-width:760px;
     }
 
     .panel-grid{
       display:grid;
       grid-template-columns:1.35fr .85fr;
-      gap:16px;
-      margin-bottom:16px;
+      gap:18px;
+      margin-bottom:18px;
     }
 
     .card{
-      background:var(--panel);
+      background:var(--surface);
       border:1px solid var(--line);
       border-radius:var(--radius);
-      box-shadow:var(--shadow);
+      box-shadow:0 20px 60px rgba(0,0,0,0.28);
     }
 
     .sys{
-      padding:18px;
+      padding:22px;
     }
 
     .sys h3{
-      margin:0 0 12px;
-      font-size:14px;
-      color:#60778d;
+      margin:0 0 14px;
+      font-size:13px;
+      color:var(--text);
       text-transform:uppercase;
-      letter-spacing:.12em;
+      letter-spacing:.18em;
+      font-weight:700;
     }
 
-    .sys-list{display:grid;gap:10px}
+    .sys-list{display:grid;gap:12px}
     .sys-item{
       display:flex;
       justify-content:space-between;
       align-items:center;
       font-size:14px;
-      color:#4a6176;
-      background:#f2f7f9;
-      border:1px solid #e4edf1;
-      border-radius:12px;
-      padding:10px 12px;
+      color:var(--text);
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:10px;
+      padding:14px 16px;
+    }
+
+    .sys-item span{
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:600;
+    }
+
+    .sys-item strong{
+      color:var(--text);
+      font-weight:700;
     }
 
     .folders{
-      padding:18px;
+      padding:22px;
     }
 
     .folders-head{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      margin-bottom:12px;
+      margin-bottom:14px;
+      gap:12px;
     }
 
     .folders-head h2{
       margin:0;
-      font-size:16px;
-      letter-spacing:.08em;
+      font-size:15px;
+      letter-spacing:.18em;
       text-transform:uppercase;
-      color:#60778d;
+      color:var(--text);
       font-weight:700;
     }
 
     .count-pill{
-      font-size:12px;
-      color:#49667f;
-      background:#e8f1f5;
-      border:1px solid #d5e4ea;
+      font-size:11px;
+      color:var(--text);
+      background:rgba(255,193,7,0.12);
+      border:1px solid rgba(255,193,7,0.22);
       border-radius:999px;
-      padding:6px 11px;
+      padding:7px 14px;
       font-weight:700;
     }
 
     .grid{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:12px;
+      gap:14px;
     }
 
     .folder{
       text-decoration:none;
       color:inherit;
-      background:#f4f9fb;
-      border:1px solid #dce8ee;
-      border-radius:16px;
-      padding:14px;
-      transition:all .3s ease;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:12px;
+      padding:20px;
+      transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease;
       position:relative;
       overflow:hidden;
       animation:rise .45s ease both;
@@ -211,40 +225,40 @@ $serverName = $_SERVER['SERVER_NAME'] ?? 'localhost';
     .folder::after{
       content:"";
       position:absolute;
-      width:140px;
-      height:140px;
-      right:-60px;
-      top:-70px;
-      background:radial-gradient(circle, rgba(135,184,216,.22), transparent 65%);
+      width:100px;
+      height:100px;
+      right:-30px;
+      top:-30px;
+      background:radial-gradient(circle, rgba(255,193,7,0.18), transparent 60%);
       pointer-events:none;
     }
 
     .folder:hover{
-      transform:translateY(-5px);
-      border-color:#c6dae7;
-      box-shadow:var(--shadow-hover);
-      background:#f8fcfe;
+      transform:translateY(-4px);
+      border-color:rgba(255,193,7,0.4);
+      box-shadow:0 24px 55px rgba(0,0,0,0.35);
+      background:rgba(255,255,255,0.05);
     }
 
     .icon{
-      width:42px;height:42px;
-      border-radius:12px;
+      width:44px;height:44px;
+      border-radius:10px;
       display:grid;place-items:center;
-      background:linear-gradient(145deg,#dceaf2,#e9f2f6);
-      color:#5d7d97;
-      margin-bottom:10px;
+      background:rgba(255,193,7,0.12);
+      color:var(--accent);
+      margin-bottom:12px;
       font-size:20px;
     }
 
     .fname{
       font-weight:700;
       font-size:15px;
-      margin-bottom:4px;
+      margin-bottom:6px;
       word-break:break-word;
     }
 
     .meta{
-      color:#7c91a4;
+      color:var(--muted);
       font-size:12px;
       display:flex;
       align-items:center;
@@ -253,12 +267,12 @@ $serverName = $_SERVER['SERVER_NAME'] ?? 'localhost';
 
     .empty{
       text-align:center;
-      color:#7f95a9;
+      color:var(--muted);
       font-size:14px;
-      padding:24px;
-      border:1px dashed #cddde7;
-      border-radius:14px;
-      background:#f5fafc;
+      padding:26px;
+      border:1px dashed rgba(255,255,255,0.12);
+      border-radius:12px;
+      background:rgba(255,255,255,0.03);
     }
 
     @media (max-width:980px){
@@ -266,12 +280,12 @@ $serverName = $_SERVER['SERVER_NAME'] ?? 'localhost';
       .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media (max-width:640px){
-      .hero{padding:24px 20px}
+      .hero{padding:28px 20px}
       .grid{grid-template-columns:1fr}
     }
 
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
   </style>
 </head>
 <body>
@@ -279,7 +293,7 @@ $serverName = $_SERVER['SERVER_NAME'] ?? 'localhost';
     <section class="hero">
       <div class="eyebrow">Based On My Projects</div>
       <h1>Kumpulan Project Praktikum</h1>
-      <div class="sub">Nuriskha Ainun Fahmi (243200330) [24]</div>
+      <div class="sub">Muhammad Aziz Al Mubasyir (243200310) [24]</div>
       <p class="desc">
         Selamat datang di portal project praktikum. Halaman ini menampilkan seluruh folder project secara otomatis.
       </p>
